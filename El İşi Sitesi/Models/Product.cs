@@ -11,7 +11,7 @@ namespace projem.Models
 {
     public class Product
     {
-        //El işi ürünün id, adı, açıklaması, fiyatı bulunabilir. 
+        //Ürünün id, adı, açıklaması, fiyatı bulunabilir. 
 
         public int ProductId { get; set; }
 
@@ -21,6 +21,7 @@ namespace projem.Models
 
         public double? Price { get; set; }
 
+        //Açıklama olması ve 5-100 arasında olması zorunludur.
         [Required(ErrorMessage="Description zorunlu bir alan.")]
         [StringLength(100,MinimumLength=5,ErrorMessage="Description 5-100 karakter aralığında olmalıdır.")]
       
