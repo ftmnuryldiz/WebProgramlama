@@ -1,4 +1,4 @@
-using ElİsiSitesi.Models;
+using odevim.Models;
 using System.Collections.Generic;
 
 namespace odevim.Models
