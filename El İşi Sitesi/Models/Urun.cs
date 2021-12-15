@@ -7,14 +7,16 @@ using System.Threading.Tasks;
 namespace ElİsiSitesi.Models
 {
     //Ürünümüzün ad, fiyat, id, açıklama, kategori id'si gibi özellikleri olur. 
-    public class Urun
+    public class Product
     {
         //DataAnnotations'u ekliyoruz.  
         //UrunAdi zorunludur ve 10-60 karakter arası olmalıdır.
 
         [Required]
         [StringLength(60, MinimumLength = 10, ErrorMessage = "Ürün ismi 10-60 karakter arasında olmalıdır.")]
-        public string urunAdi { get; set; }
+        public string Name { get; set; }
+
+        public int ProductId { get; set; }
 
         [Required(ErrorMessage = "Fiyat Girmelisiniz.")]
         [Range(1, 10000)]
