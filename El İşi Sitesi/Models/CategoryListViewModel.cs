@@ -1,7 +1,7 @@
 using ElİsiSitesi.Models;
 using System.Collections.Generic;
 
-namespace ElIsiSitesi.Models
+namespace odevim.Models
 {
     public class CategoryListViewModel
     {
