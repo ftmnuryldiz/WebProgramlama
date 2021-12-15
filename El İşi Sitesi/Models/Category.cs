@@ -16,10 +16,7 @@ namespace odevim.Models
 
         [Required(ErrorMessage = "Url zorunludur.")]
         [StringLength(100, MinimumLength = 5, ErrorMessage = "Url için 5-100 arasında değer giriniz.")]
-
-        public string Url { get; set; }
-        
-         //Prodcut'la bağlantısını yapiyoruz.
+        //Prodcut'la bağlantısını yapiyoruz.
         public List<Product> Products { get; set; }
     }
 }
