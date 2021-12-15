@@ -35,6 +35,8 @@ namespace ElİsiSitesi.Models
         public int? CategoryId { get; set; }
 
         //Kategoriyle ilişki.
-        public List<Category> SelectedCategories { get; set; }
+        public List <Category> SelectedCategories { get; set; }
+
+        public string Url { get; set; }
     }
 }
