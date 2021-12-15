@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ElİsiSitesi.Models
+namespace odevim.Models
 {
     //Ürünümüzün ad, fiyat, id, açıklama, kategori id'si gibi özellikleri olur. 
     public class Product
