@@ -25,18 +25,10 @@ namespace odevim.Models
 
         public string Description { get; set; }
 
-        //Ürün linki ve kategori idsi zorunlu.
-        [Required(ErrorMessage = "ImageUrl zorunlu bir alan.")]
-        public string ImageUrl { get; set; }
-
-        public bool IsApproved { get; set; }
-
         [Required]
         public int? CategoryId { get; set; }
 
         //Kategoriyle ilişki.
-        public List <Category> SelectedCategories { get; set; }
-
-        public string Url { get; set; }
+        public List<Category> SelectedCategories { get; set; }
+     }
     }
-}
