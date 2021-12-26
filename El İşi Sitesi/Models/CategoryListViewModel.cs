@@ -1,7 +1,6 @@
-using odevim.Models;
 using System.Collections.Generic;
 
-namespace odevim.Models
+namespace WebOdevim.Models
 {
     public class CategoryListViewModel
     {
