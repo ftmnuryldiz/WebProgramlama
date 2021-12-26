@@ -1,0 +1,43 @@
+@model WebOdevim.Models.Product
+@* Product modelini kullandığımızı söylerek tag helperlarlarla da asp-for dediğinde Product içindeki name'ı alacak.' *@
+ <!DOCTYPE html>
+<html>
+<body>
+    @* Buradan girdiğin bilgiler url''nin bir parçası olmasın. Kullanıcıya gösterilmesin diye, get değil post dedik. *@
+<form method="POST">
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="form-group">
+        <label for="Name">Ürün Adı:</label>
+        <input asp-for="Name" value="@Model.Name" class="form-control">  
+        @* Eğer validation istenilen şekilde değilse hata versin diye: *@
+        <span asp-validation-for="Name" class="text-danger"></span>  
+    </div>
+    <div class="form-group">
+        <label for="Price">Ürün Fiyatı: </label>
+        <input asp-for="Price" value="@Model.Price" class="form-control">
+         <span asp-validation-for="Price" class="text-danger"></span>  
+    </div>
+    <div class="form-group">
+        <label for="Description">Ürün Açıklaması: </label>
+        <textarea asp-for="Description" value="@Model.Description" class="form-control"></textarea>
+         <span asp-validation-for="Description" class="text-danger"></span>  
+    </div>
+    <div class="form-group">
+        <label for="ImageUrl">Görsel Adresi: </label>
+        <input asp-for="ImageUrl" value="@Model.ImageUrl" class="form-control">
+         <span asp-validation-for="ImageUrl" class="text-danger"></span>  
+    </div>
+    <div class="form-group">
+        <label for="CategoryId">Kategori Türü: </label>
+        @* Sayfamızın modeli Product bu yüzünden Product modeli içindeki CategoryId için bir atama yapıyoruz asp-for'la *@
+        @* asp-items'a bir select listesi gelecek. *@
+        <select asp-for="CategoryId" asp-items="@ViewBag.Categories" class="form-control">
+            @* En üstte  ekleyemediğin o kısımın adı, seçilmeyecek diye disabled *@
+            <option selected disabled>Seçiniz</option>
+        </select>
+        <span asp-validation-for="CategoryId" class="text-danger"></span>  
+    </div>
+    <button type="submit" class="btn btn-primary">Kaydet</button>
+</form>
+    </body>
+</html>

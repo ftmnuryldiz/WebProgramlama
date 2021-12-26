@@ -1,0 +1,25 @@
+@model WebOdevim.Models.Product
+@* Shared/Components/Default.cshtml altýndaki kategori tablomuzun burada olmasýný istediðimizi, zorunlu olmadýðý için false demiþtik belirttik. Ürünlerimizin detaylarýný gösterirken de yanda kategori tablomyz gözüksün. *@
+
+@* Invoke Metoduna göndermek için: *@
+@section Categories
+{
+    @await Component.InvokeAsync("Categories")
+}
+
+<div class="card border-danger mb-3" style="max-width: 18rem;">
+    <div class="card-body">
+        <div class="row no-gutters">
+            <div class="col-md-3">
+                <img src="~/img/@Model.ImageUrl" class="card-img">
+            </div>
+            <div class="cold-flex justify-content-center-md-9">
+
+                <h5 class="card-header">@Model.Name</h5>
+               
+                <p class="card-text">@Model.Description</p>
+
+            </div>
+        </div>
+    </div>
+</div>

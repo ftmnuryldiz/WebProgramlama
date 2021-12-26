@@ -1,0 +1,59 @@
+@* her controllerı etkileyen bu yapı'da RenderBody yapıları kullanılır. -değişecek olan kısımlar için-  *@
+@* Layoutta olanlar değişmez ama header gibi bazısında olup bazısında olmayacak kısımlar için section'lar kullanılır.  *@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @* Aynı şekilde tek tek boostrap url sini yazmadan node_modules içinde de modules kullanabiliriz. *@
+    <link rel="stylesheet" href="/modules/bootstrap/dist/css/bootstrap.min.css" crossorigin="anonymous">
+    @* wwwroot u dışarı açmıştık Startup.cs'de o sayede direkt ulaşabiliyoruz.  *@
+    <link rel="stylesheet" href="~/css/style.css">
+    <title>Document</title>
+</head>
+<body>
+
+    @await Html.PartialAsync("_navbar")
+
+    @* 
+        Layout içerisinde olacak olan ama her sayfada bulunması zorunlu değil header kısmının. Bu yüzden false dedim bool required'ına. 
+    *@
+
+    @RenderSection("Header",false)        
+
+    <main class="my-3">
+        @* Container ekranın belli kısmını, container fluid tamamını kullanır. *@
+        <div class="container"> 
+
+            @*  *@
+
+            @if(IsSectionDefined("Categories"))
+            {
+                <div class="row">
+                    <div class="col-md-4">
+                        @RenderSection("Categories",false)
+                    </div>
+                    <div class="col-md-8">
+                        @RenderBody()
+                    </div>
+                </div>
+            }   
+    
+            else
+            {
+                 <div class="row">
+                    <div class="col-md-12">
+                        @RenderBody()
+                    </div>
+                 </div>   
+            }
+            
+        </div>
+    </main>
+   
+    @* Layouta jquery'ın orijinal versiyonunu koyarak bütün sayfalarda bulunmasını da sağladık. ' *@
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+
+    @RenderSection("Scripts",false)
+</body>
+</html>

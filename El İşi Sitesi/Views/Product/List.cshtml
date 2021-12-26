@@ -1,0 +1,34 @@
+@*  türümüz list<product> ve onu view'a gönderebilmek için açtığımız ProductViewModel *@
+@model ProductListViewModel
+
+
+@{
+    var products = Model.Products;
+}
+
+@section Categories
+{
+    @* Bir components'i view'da kullanmak için çağırma *@
+    @await Component.InvokeAsync("Categories")
+}
+
+@* ürün yoksa _noproduct components'ine gitsin. *@
+@if (products.Count == 0)
+{
+
+    @await Html.PartialAsync("_noproduct")
+}
+else
+{
+    <div class="row">
+        @* products listesi içindeki her elemanı product içindeki kopyalayacağız.  *@
+        @foreach (var product in products)
+        {
+            @* Bir satır içerisinde 3 eleman olsun dersen col-md'yi 4 yap. *@
+            <div class="col-md-4">
+                @* _product component'ine gitsin döngüde products listesinden kopyaladıklarımızla *@
+                @await Html.PartialAsync("_product", product)
+            </div>
+        }
+    </div>
+}

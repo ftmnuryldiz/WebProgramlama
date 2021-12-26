@@ -1,0 +1,20 @@
+@model Product
+@* Sayfaya bir product nesnesi gönderdiğin zaman sayfada bu gözüksün diye. *@
+<div class="card mb-2">
+    <img class="card-img-top" src="~/img/@Model.ImageUrl" alt="Ürünlerimizin fotoğraflarını görmektesiniz.">
+    <div class="card-body">
+        <h5 class="card-title">@Model.Name</h5>
+        <p class="card-text">@Model.Description</p>
+        <p class="card-text bg-light">        Fiyat: @Model.Price TL </p>
+        <a asp-controller="Product" asp-action="Details" asp-route-id="@Model.ProductId" class="btn btn-success btn-sm">İNCELE</a>
+        <a asp-controller="Product" asp-action="Edit" asp-route-id="@Model.ProductId" class="btn btn-warning btn-sm">DÜZENLE</a>
+       
+       <form method="POST" action="/product/delete" style="display: inline;">
+       @* kullanıcı taafından görülmesin diye hidden kullandım.  *@
+            <input type="hidden" name="ProductId" value="@Model.ProductId">
+            <button type="submit"class="btn btn-danger btn-sm">SİL</button>
+        </form>
+   
+   
+    </div>
+</div>   
